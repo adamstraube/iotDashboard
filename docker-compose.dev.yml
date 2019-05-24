@@ -1,0 +1,16 @@
+version: '3.4'
+services:
+  paratest:
+    build:
+      context: ./docker/phpfpm
+      dockerfile: ./docker/phpfpm/Dockerfile
+    container_name: paratest
+    entrypoint:
+      - vendor/bin/paratest
+    command: "-p4 --bootstrap ./bootstrap/app.php --coverage-text"
+    working_dir: "/var/www"
+    depends_on:
+      - web
+    volumes:
+      - ./docker/phpfpm/php.ini:/etc/php7/conf.d/99-overrides.ini
+      - ./:/var/www:delegated
