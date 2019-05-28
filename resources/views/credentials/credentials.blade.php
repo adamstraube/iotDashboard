@@ -8,13 +8,8 @@
                 <div class="panel-heading">Credentials</div>
 
                 <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
 
-                    Edit Credentials here!
+
                 </div>
             </div>
         </div>

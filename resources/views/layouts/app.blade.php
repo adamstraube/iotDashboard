@@ -53,14 +53,13 @@
 
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{ route('logout') }}"
-                                           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Endpoints
+                                        <a href="{{ route('devices') }}">
+                                            Devices
                                         </a>
-                                        <a href="{{ route('logout') }}"
-                                           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                        <a href="{{ route('apiAdmin') }}">
+                                            API Endpoints
+                                        </a>
+                                        <a href="{{ route('credentials') }}">
                                             Credentials
                                         </a>
                                         <a href="{{ route('logout') }}"

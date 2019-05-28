@@ -18,5 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/devices', 'DeviceController@index')->name('devices');
 Route::get('/credentials', 'CredentialsController@index')->name('credentials');
-Route::get('/api', 'ApiController@index')->name('api');
+Route::get('/apiAdmin', 'ApiAdminController@index')->name('apiAdmin');

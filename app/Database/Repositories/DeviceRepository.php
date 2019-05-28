@@ -15,6 +15,6 @@ class DeviceRepository extends Repository
      */
     public function retrieveAllDevices(): array
     {
-        return Device::all();
+        return Device::all('id', 'device_name', 'device_mac')->toArray();
     }
 }

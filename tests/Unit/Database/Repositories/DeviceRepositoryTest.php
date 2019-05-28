@@ -3,7 +3,9 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Database\Repositories;
 
+use App\Database\Entities\Device;
 use App\Database\Entities\User;
+use App\Database\Repositories\DeviceRepository;
 use App\Http\Controllers\Auth\RegisterController;
 use Tests\Base\TestCase;
 
@@ -19,31 +21,34 @@ class DeviceRepositoryTest extends TestCase
      *
      * @throws \Exception
      */
-    public function testCanLogin(): void
+    public function testRetrieveDevice(): void
     {
-        $registerUser = $this->getMethod('create');
+        $device = $this->generateDevice();
+        $device->save();
 
-        $this->assertTrue($loginFunction);
+        $deviceRepository = new DeviceRepository();
+        $result = $deviceRepository->retrieveAllDevices();
+
+        $this->assertIsArray($result);
+        $this->assertContains('testDevice', $result[0]);
     }
 
     /**
-     * Generates user details and persists in DB for test
+     * Generates device details and persists in DB for test
      *
      * @return User
      *
      * @throws \Exception
      */
-    private function generateUserDetails(): User
+    private function generateDevice(): Device
     {
-        $username = 'testUser';
-        $password = random_bytes(8);
-        $email = 'test@test.com';
+        $name = 'testDevice';
+        $macAddress = random_bytes(8);
 
-        $user = new User([
-            'name' => $username,
-            'password' => $password,
-            'email' => $email
+        $device = new Device([
+            'device_name' => $name,
+            'device_mac' => $macAddress
         ]);
-        return $user;
+        return $device;
     }
 }
