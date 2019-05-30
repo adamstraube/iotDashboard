@@ -37,6 +37,11 @@ EXPOSE 9000
 
 RUN ln -s /usr/bin/php7 /usr/bin/php && ln -s /usr/bin/phpdbg7 /usr/bin/phpdbg
 
+# Composer
+RUN wget -O /tmp/composer-install.php https://getcomposer.org/installer \
+  && php /tmp/composer-install.php -- --install-dir=/usr/local/bin --filename=composer \
+  && rm /tmp/composer-install.php
+
 RUN addgroup -S www-data \
   && adduser -S www-data -G www-data -u 1000
 

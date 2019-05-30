@@ -25,7 +25,10 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/"
-        }
+        },
+        "classmap": [
+            "database/"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
