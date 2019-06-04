@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Database\Entities\Device;
 use App\Database\Repositories\DeviceRepository;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class DeviceController extends Controller
 {
@@ -29,12 +30,11 @@ class DeviceController extends Controller
     /**
      * Show the devices dashboard
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
-    public function index()
+    public function index(): View
     {
-        $devices = $this->deviceRepository->retrieveAllDevices();
-        return view('devices.devices', ['devices' => $devices]);
+        return view('devices.devices');
     }
 
     /**
@@ -51,6 +51,7 @@ class DeviceController extends Controller
      * Create new device in DB
      *
      * @param Request $data
+     *
      * @return array
      */
     public function new(Request $data): array
@@ -68,5 +69,37 @@ class DeviceController extends Controller
         $device->save();
 
         return ['message' => 'Device Created'];
+    }
+
+    /**
+     * Update device in DB
+     *
+     * @param string $id
+     * @param Request $data
+     *
+     * @return array
+     */
+    public function update(Request $data, string $id): array
+    {
+        $device = Device::findOrFail($id);
+
+        $this->validate($data, [
+            'device_name' => 'required',
+            'device_mac' => 'required'
+        ]);
+
+        $device->fill($data->all());
+        $device->save();
+
+        return ['message' => 'Device Updated'];
+    }
+
+    public function delete(string $id): array
+    {
+        $device = Device::findOrFail($id);
+
+        $device->delete();
+
+        return ['message' => 'Device Deleted'];
     }
 }

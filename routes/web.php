@@ -18,8 +18,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/devices', 'DeviceController@index')->name('devices');
 Route::get('/devices/list', 'DeviceController@list');
+Route::post('/devices/new', 'DeviceController@new');
+Route::put('/devices/update/{id}', 'DeviceController@update');
+Route::delete('/devices/delete/{id}', 'DeviceController@delete');
 
 Route::get('/credentials', 'CredentialsController@index')->name('credentials');
 Route::get('/apiAdmin', 'ApiAdminController@index')->name('apiAdmin');
