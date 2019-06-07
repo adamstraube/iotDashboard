@@ -159,9 +159,9 @@ class Form {
                     resolve(response.data);
                 })
                 .catch(error => {
-                    this.onFail(error.response.data);
+                    this.onFail(error.response);
 
-                    reject(error.response.data);
+                    reject(error.response);
                 });
         });
     }
@@ -173,8 +173,6 @@ class Form {
      * @param {object} data
      */
     onSuccess(data) {
-        devices_list.refresh();
-
         this.reset();
     }
 

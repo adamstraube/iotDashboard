@@ -19,8 +19,8 @@ abstract class TestCase extends BaseTestCase
     {
         parent::setUp();
 
-        Artisan::call('migrate');
+        Artisan::call('migrate:fresh');
 
-        // $this->seed();
+        $this->seed();
     }
 }

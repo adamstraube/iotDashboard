@@ -40,9 +40,9 @@ class DeviceController extends Controller
     /**
      * Retrieve all devices from DB
      *
-     * @return array|mixed[]
+     * @return mixed[]
      */
-    public function list()
+    public function list(): array
     {
         return $this->deviceRepository->retrieveAllDevices();
     }
@@ -52,7 +52,7 @@ class DeviceController extends Controller
      *
      * @param Request $data
      *
-     * @return array
+     * @return mixed[]
      */
     public function new(Request $data): array
     {
@@ -68,7 +68,10 @@ class DeviceController extends Controller
 
         $device->save();
 
-        return ['message' => 'Device Created'];
+        return [
+            'message' => 'Device Created',
+            'id' => $device->toArray()['id']
+        ];
     }
 
     /**
@@ -81,7 +84,7 @@ class DeviceController extends Controller
      */
     public function update(Request $data, string $id): array
     {
-        $device = Device::findOrFail($id);
+        $device = Device::query()->findOrFail($id);
 
         $this->validate($data, [
             'device_name' => 'required',
@@ -91,15 +94,30 @@ class DeviceController extends Controller
         $device->fill($data->all());
         $device->save();
 
-        return ['message' => 'Device Updated'];
+        return [
+            'message' => 'Device Updated',
+            'data' => $device
+        ];
     }
 
+    /**
+     * Delete device from DB
+     *
+     * @param string $id
+     *
+     * @return array
+     *
+     * @throws \Exception
+     */
     public function delete(string $id): array
     {
-        $device = Device::findOrFail($id);
+        $device = Device::query()->findOrFail($id);
 
         $device->delete();
 
-        return ['message' => 'Device Deleted'];
+        return [
+            'message' => 'Device Deleted',
+            'id' => $device->toArray()['id']
+        ];
     }
 }

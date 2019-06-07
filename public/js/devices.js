@@ -57,7 +57,9 @@ let new_device = new Vue({
 
     methods: {
         onSubmit() {
-            this.form.post('/devices/new');
+            this.form.post('/devices/new')
+                .then(response => devices_list.refresh())
+                .catch(error => alert('failed'));
         }
     }
 });
