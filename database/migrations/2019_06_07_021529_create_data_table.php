@@ -13,7 +13,7 @@ class CreateDataTable extends Migration
      */
     public function up()
     {
-        Schema::create('data', function (Blueprint $table) {
+        Schema::create('device_data', function (Blueprint $table) {
             $table->increments('id');
             $table->string('data');
             $table->timestamps();
@@ -36,6 +36,6 @@ class CreateDataTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('data');
+        Schema::dropIfExists('device_data');
     }
 }
