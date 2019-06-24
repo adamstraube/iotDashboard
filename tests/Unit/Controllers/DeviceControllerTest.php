@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Tests\Unit\Controllers\Devices;
+namespace Tests\Unit\Controllers;
 
 use App\Database\Entities\Device;
 use App\Http\Controllers\DeviceController;

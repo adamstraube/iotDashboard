@@ -23,9 +23,9 @@ Route::group(
         'namespace' => 'devices'
     ],
     function() {
-        Route::get('sendDataToApp', [
+        Route::post('sendDataToApp', [
             'as'    =>  'sendData',
-            'uses'  =>  'sendDataApi@send'
+            'uses'  =>  'sendData@send'
         ]);
     }
 );
