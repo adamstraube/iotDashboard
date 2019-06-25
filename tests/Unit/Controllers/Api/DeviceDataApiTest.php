@@ -18,8 +18,8 @@ class DeviceDataApiTest extends TestCase
     {
         $deviceDataApi = new DeviceDataApi();
         $result = $deviceDataApi->send([
-            'device_mac' => 'required',
-            'data'
+            'device_mac' => 'test123',
+            'data' => 'data'
         ]);
 
         $this->assertIsArray($result);

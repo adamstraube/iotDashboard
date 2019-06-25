@@ -38,15 +38,19 @@ class DeviceDataApi extends Controller
      */
     public function send(array $data): array
     {
-        $device = Device::query()->find(); // Find Device to get id for data
+        if (!isset($data['device_mac'])) {
+            throw \Exception;
+        }
 
-        $this->validate($data, [
-            'device_mac' => 'required',
-            'data' => 'required'
-        ]);
+        $device = Device::findOrFail()->where('mac', $data['device_mac']); // Find Device to get id for data
 
-        $device->fill($data->all());
-        $device->save();
+//        $this->validate($data, [
+//            'device_mac' => 'required',
+//            'data' => 'required'
+//        ]);
+//
+//        $device->fill($data->all());
+//        $device->save();
 
         return [
             'message' => 'Device Updated',
