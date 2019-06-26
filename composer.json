@@ -6,6 +6,7 @@
     "type": "project",
     "require": {
         "php": ">=7.2",
+        "ext-json": "*",
         "fideloper/proxy": "~3.3",
         "guzzlehttp/guzzle": "^6.0",
         "laravel/framework": "5.5.*",

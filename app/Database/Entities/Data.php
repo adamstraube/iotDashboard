@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Data extends Model
 {
+    protected $table = 'device_data';
+
     /**
      * The attributes that are mass assignable.
      *
