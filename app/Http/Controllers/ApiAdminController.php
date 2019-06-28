@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class ApiAdminController extends Controller
 {
@@ -20,9 +20,9 @@ class ApiAdminController extends Controller
     /**
      * Show the Credentials modify dashboard
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function index()
+    public function index(): Response
     {
         return view('api.api');
     }

@@ -26,7 +26,7 @@ class DeviceDataApi extends Controller
     /**
      * Show the Credentials modify dashboard
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {

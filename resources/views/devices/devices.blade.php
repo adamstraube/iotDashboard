@@ -17,7 +17,7 @@
                                     <b>Device Hardware Address</b>
                                 </div>
                                 <div class="col-md-3">
-                                    <b>Device Group</b>
+                                    <b>Device Information</b>
                                 </div>
                                 <div class="col-md-3">
                                     <b>Functions</b>
@@ -44,7 +44,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-3">
-                                    none
+                                    <a :href="`/device/${device.id}/data`"> View Data </a>
                                 </div>
                                 <div class="col-md-3">
                                     <div v-if="device.edit">

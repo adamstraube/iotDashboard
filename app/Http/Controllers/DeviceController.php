@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Database\Entities\Device;
 use App\Database\Repositories\DeviceRepository;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -107,7 +108,7 @@ class DeviceController extends Controller
      *
      * @return array
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function delete(string $id): array
     {

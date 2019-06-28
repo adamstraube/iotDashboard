@@ -25,5 +25,8 @@ Route::post('/devices/new', 'DeviceController@new');
 Route::put('/devices/update/{id}', 'DeviceController@update');
 Route::delete('/devices/delete/{id}', 'DeviceController@delete');
 
+Route::get('/device/{id}/data/', ['as' => 'devices.device.data', 'uses' => 'DeviceDataController@index']);
+Route::get('/device/{id}/data/list', ['as' => 'devices.device.data.list', 'uses' => 'DeviceDataController@list']);
+
 Route::get('/credentials', 'CredentialsController@index')->name('credentials');
 Route::get('/apiAdmin', 'ApiAdminController@index')->name('apiAdmin');
