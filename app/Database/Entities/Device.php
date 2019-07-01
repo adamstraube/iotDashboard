@@ -23,6 +23,6 @@ class Device extends Model
      */
     public function data(): HasMany
     {
-        return $this->hasMany('App\Database\Entities\Data');
+        return $this->hasMany('App\Database\Entities\DeviceData');
     }
 }

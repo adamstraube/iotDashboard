@@ -5,7 +5,7 @@ namespace App\Database\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Data extends Model
+class DeviceData extends Model
 {
     protected $table = 'device_data';
 

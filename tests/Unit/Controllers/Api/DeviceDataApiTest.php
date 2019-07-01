@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Controllers\Api;
 
-use App\Database\Entities\Data;
+use App\Database\Entities\DeviceData;
 use App\Http\Controllers\Api\DeviceDataApi;
 use Illuminate\Http\Request;
 use Tests\Base\TestCase;
@@ -26,7 +26,7 @@ class DeviceDataApiTest extends TestCase
 
         $result = json_decode($return->getContent());
 
-        $dataResult = Data::query()->where('device_id', $result->device_id)->firstOrFail()->toArray();
+        $dataResult = DeviceData::query()->orderBy('created_at', 'desc')->where('device_id', $result->device_id)->firstOrFail()->toArray();
 
         $this->assertEquals('200', $return->getStatusCode());
         $this->assertEquals('1', $result->device_id);
@@ -47,7 +47,7 @@ class DeviceDataApiTest extends TestCase
 
         $result = json_decode($return->getContent());
 
-        $dataResult = Data::query()->where('device_id', $result->device_id)->firstOrFail()->toArray();
+        $dataResult = DeviceData::query()->where('device_id', $result->device_id)->firstOrFail()->toArray();
 
         $this->assertEquals('200', $return->getStatusCode());
         $this->assertEquals('2', $result->device_id);

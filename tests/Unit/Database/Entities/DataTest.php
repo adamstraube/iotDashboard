@@ -3,12 +3,12 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Database\Entities;
 
-use App\Database\Entities\Data;
 use App\Database\Entities\Device;
+use App\Database\Entities\DeviceData;
 use Tests\Base\TestCase;
 
 /**
- * @covers \App\Database\Entities\Data
+ * @covers \App\Database\Entities\DeviceData
  */
 class DataTest extends TestCase
 {
@@ -25,7 +25,7 @@ class DataTest extends TestCase
             'device_mac' => 'test456'
         ]);
         $device->save();
-        $data = new Data([
+        $data = new DeviceData([
            'data' => 'This is test data'
         ]);
         $data->device()->associate($device);

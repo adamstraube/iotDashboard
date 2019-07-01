@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api;
 
-use App\Database\Entities\Data;
 use App\Database\Entities\Device;
+use App\Database\Entities\DeviceData;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
@@ -60,7 +60,7 @@ class DeviceDataApi extends Controller
 
         $deviceId = $this->checkDeviceExists($dataArray);
 
-        $dataModel = new Data();
+        $dataModel = new DeviceData();
         $dataModel->fill([
             'data' => $data['data'],
             'device_id' => $deviceId
