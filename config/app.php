@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Jira API GUI'),
+    'name' => env('APP_NAME', 'IOT Dashboard'),
 
     /*
     |--------------------------------------------------------------------------
