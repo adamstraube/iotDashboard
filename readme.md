@@ -1,5 +1,7 @@
 ## IOT Dashboard App/API
 
+[Work in progress]
+
 Central location to log data from IOT devices.
 
 To run locally with docker-compose:
